@@ -12,11 +12,11 @@ export class AppController {
 
   @Get(':id')
   getRemportById(@Param('type') type: string, @Param('id') id: string) {
-    console.log({
-      type,
-      id,
-    });
-    return {};
+    const reportType =
+      type === 'income' ? ReportType.INCOME : ReportType.EXPENSE;
+    return data.report
+      .filter((report) => report.type === reportType)
+      .find((report) => report.id === id);
   }
 
   @Post()
