@@ -11,7 +11,11 @@ export class AppController {
   }
 
   @Get(':id')
-  getRemportById() {
+  getRemportById(@Param('type') type: string, @Param('id') id: string) {
+    console.log({
+      type,
+      id,
+    });
     return {};
   }
 
